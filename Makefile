@@ -6,8 +6,16 @@ include config.mk
 
 SRC = st.c x.c boxdraw.c hb.c
 OBJ = $(SRC:.c=.o)
+PATCHES = $(wildcard patches/*)
 
-all: options st
+all: patches options st
+
+.PHONY: patches revert_patches
+patches:
+	@$(foreach p, $(PATCHES), patch < $(p);)
+
+revert_patches:
+	@$(foreach p, $(PATCHES), patch -R < $(p);)
 
 options:
 	@echo st build options:
