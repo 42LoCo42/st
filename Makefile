@@ -8,7 +8,7 @@ SRC = st.c x.c boxdraw.c hb.c
 OBJ = $(SRC:.c=.o)
 PATCHES = $(wildcard patches/*)
 
-all: patches options st
+all: options st
 
 .PHONY: patches revert_patches
 patches:
