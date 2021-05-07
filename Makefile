@@ -50,7 +50,6 @@ dist: clean
 install: st
 	git submodule init
 	git submodule update
-	$(MAKE) install -C scroll
 	mkdir -p $(DESTDIR)$(PREFIX)/bin
 	cp -f st $(DESTDIR)$(PREFIX)/bin
 	cp -f st-copyout $(DESTDIR)$(PREFIX)/bin
@@ -70,4 +69,4 @@ uninstall:
 	rm -f $(DESTDIR)$(PREFIX)/bin/st-urlhandler
 	rm -f $(DESTDIR)$(MANPREFIX)/man1/st.1
 
-.PHONY: all options clean dist scroll install uninstall
+.PHONY: all options clean dist install uninstall
